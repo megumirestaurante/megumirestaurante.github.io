@@ -11,20 +11,17 @@
   <meta property="og:description" content="Reserve sua mesa pelo WhatsApp. @megumirestaurante" />
   <meta property="og:type" content="website" />
 
-  <!-- =========================
-       (OPCIONAL) GOOGLE ADS TAG
-       Cole aqui o Google tag (gtag.js) que o Google Ads te entrega.
-       ========================= -->
-
-  <!-- =========================
-       (OPCIONAL) CONVERSÃO NO CLIQUE (Google Ads)
-       O Google recomenda chamar gtag_report_conversion no clique do botão/link. [web:32]
-       Quando você criar a conversão "Clique" no Google Ads, ele te dará o send_to (AW-XXXX/label).
-       Troque SEND_TO_AQUI abaixo.
-       ========================= -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17872821733"></script>
   <script>
-    // Ative isso só depois de instalar o Google tag (gtag.js).
-    // Se não usar conversão agora, pode deixar como está.
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'AW-17872821733');
+  </script>
+
+  <script>
     function gtag_report_conversion(url) {
       try {
         var callback = function () {
