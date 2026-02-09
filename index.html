@@ -1,1 +1,274 @@
-teste
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Megumi Restaurante — Reservas</title>
+  <meta name="description" content="Reserve sua mesa no Megumi Restaurante pelo WhatsApp. @megumirestaurante" />
+
+  <!-- Open Graph (opcional) -->
+  <meta property="og:title" content="Megumi Restaurante — Reservas" />
+  <meta property="og:description" content="Reserve sua mesa pelo WhatsApp. @megumirestaurante" />
+  <meta property="og:type" content="website" />
+
+  <!-- =========================
+       (OPCIONAL) GOOGLE ADS TAG
+       Cole aqui o Google tag (gtag.js) que o Google Ads te entrega.
+       ========================= -->
+
+  <!-- =========================
+       (OPCIONAL) CONVERSÃO NO CLIQUE (Google Ads)
+       O Google recomenda chamar gtag_report_conversion no clique do botão/link. [web:32]
+       Quando você criar a conversão "Clique" no Google Ads, ele te dará o send_to (AW-XXXX/label).
+       Troque SEND_TO_AQUI abaixo.
+       ========================= -->
+  <script>
+    // Ative isso só depois de instalar o Google tag (gtag.js).
+    // Se não usar conversão agora, pode deixar como está.
+    function gtag_report_conversion(url) {
+      try {
+        var callback = function () {
+          if (typeof url !== 'undefined') window.location = url;
+        };
+
+        if (typeof gtag === 'function') {
+          gtag('event', 'conversion', {
+            'send_to': 'SEND_TO_AQUI', // Ex.: 'AW-123456789/AbCdEfGhIjK'
+            'event_callback': callback
+          });
+          return false;
+        }
+
+        // Se gtag não existir ainda, só redireciona.
+        window.location = url;
+        return false;
+      } catch (e) {
+        window.location = url;
+        return false;
+      }
+    }
+  </script>
+
+  <style>
+    :root{
+      --bg0:#08110e;       /* verde quase preto */
+      --bg1:#0d1f18;       /* verde escuro */
+      --card:#0f241c;      /* painel */
+      --gold:#d7b36a;      /* dourado */
+      --text:#f3f0e8;      /* off-white */
+      --muted:rgba(243,240,232,.74);
+      --stroke:rgba(215,179,106,.22);
+      --shadow:0 18px 50px rgba(0,0,0,.45);
+      --radius:20px;
+      --btnRadius:16px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body{
+      margin:0;
+      color:var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:
+        radial-gradient(1200px 700px at 20% 0%, rgba(215,179,106,.10), transparent 60%),
+        radial-gradient(900px 600px at 90% 20%, rgba(215,179,106,.08), transparent 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 24px 16px;
+    }
+
+    .wrap{
+      width: min(540px, 100%);
+    }
+
+    .card{
+      background: linear-gradient(180deg, rgba(15,36,28,.92), rgba(9,17,14,.86));
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+
+    .top{
+      padding: 26px 22px 18px 22px;
+      text-align:center;
+    }
+
+    .logoMark{
+      width: 54px;
+      height: 54px;
+      margin: 0 auto 14px;
+      border-radius: 50%;
+      border: 1px solid rgba(215,179,106,.35);
+      background:
+        radial-gradient(circle at 30% 30%, rgba(215,179,106,.35), transparent 55%),
+        radial-gradient(circle at 70% 70%, rgba(215,179,106,.18), transparent 60%),
+        rgba(0,0,0,.25);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      letter-spacing: .5px;
+      font-weight: 600;
+      color: rgba(215,179,106,.95);
+    }
+
+    h1{
+      margin: 0 0 8px;
+      font-size: 22px;
+      font-weight: 650;
+      letter-spacing: .2px;
+    }
+
+    .subtitle{
+      margin: 0 auto;
+      max-width: 42ch;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .divider{
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(215,179,106,.35), transparent);
+      margin: 14px 0 0;
+    }
+
+    .actions{
+      padding: 18px 18px 10px 18px;
+      display:grid;
+      gap: 12px;
+    }
+
+    .btn{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      width: 100%;
+      padding: 14px 14px;
+      border-radius: var(--btnRadius);
+      text-decoration:none;
+      font-weight: 650;
+      letter-spacing: .2px;
+      border: 1px solid rgba(215,179,106,.22);
+      background: rgba(10,18,15,.55);
+      color: var(--text);
+      transition: transform .08s ease, background .15s ease, border-color .15s ease;
+      user-select:none;
+      text-align:center;
+    }
+
+    .btn:hover{
+      background: rgba(10,18,15,.78);
+      border-color: rgba(215,179,106,.38);
+      transform: translateY(-1px);
+    }
+
+    .btn:active{ transform: translateY(0px); }
+
+    .btnPrimary{
+      background: linear-gradient(180deg, rgba(215,179,106,.22), rgba(215,179,106,.12));
+      border-color: rgba(215,179,106,.45);
+    }
+
+    .btnPrimary:hover{
+      background: linear-gradient(180deg, rgba(215,179,106,.28), rgba(215,179,106,.16));
+      border-color: rgba(215,179,106,.65);
+    }
+
+    .icon{
+      width: 18px;
+      height: 18px;
+      flex: 0 0 18px;
+      opacity: .95;
+    }
+
+    .foot{
+      padding: 12px 18px 20px 18px;
+      text-align:center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .ig{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      color: var(--muted);
+      text-decoration:none;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(215,179,106,.18);
+      background: rgba(0,0,0,.18);
+    }
+
+    .ig:hover{
+      color: var(--text);
+      border-color: rgba(215,179,106,.35);
+    }
+
+    .mini{
+      margin-top: 10px;
+      font-size: 12px;
+      color: rgba(243,240,232,.58);
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      .btn{ transition:none; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+    <section class="card" aria-label="Megumi Restaurante - Reservas">
+      <header class="top">
+        <div class="logoMark" aria-hidden="true">m</div>
+        <h1>Megumi Restaurante</h1>
+        <p class="subtitle">
+          Reserve sua mesa pelo WhatsApp.<br />
+          Experiência premium para curtir cada momento.
+        </p>
+        <div class="divider" aria-hidden="true"></div>
+      </header>
+
+      <div class="actions">
+        <!-- Botão principal (WhatsApp) -->
+        <!-- Se você for usar conversão do Google Ads no clique, troque href para a mesma URL e mantenha onclick -->
+        <a class="btn btnPrimary"
+           href="https://wa.me/5519989679188?text=Ol%C3%A1!%20Quero%20reservar%20uma%20mesa%20no%20Megumi.%20Dia%3A%20%20%2F%20%20%20Hor%C3%A1rio%3A%20%20%3A%20%20%20Pessoas%3A%20"
+           onclick="return gtag_report_conversion('https://wa.me/5519989679188?text=Ol%C3%A1!%20Quero%20reservar%20uma%20mesa%20no%20Megumi.%20Dia%3A%20%20%2F%20%20%20Hor%C3%A1rio%3A%20%20%3A%20%20%20Pessoas%3A%20')"
+           target="_blank" rel="noopener">
+          <!-- ícone WhatsApp (SVG simples) -->
+          <svg class="icon" viewBox="0 0 32 32" aria-hidden="true">
+            <path fill="currentColor" d="M19.1 17.3c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.6.1-.7.8-.9 1-.3.2-.5.1c-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5.1-.1.2-.3.3-.4.1-.1.2-.3.2-.5 0-.1 0-.3-.1-.4-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.3c.1.2 1.6 2.5 3.9 3.5.5.2.9.4 1.3.5.5.2 1 .2 1.4.1.4-.1 1.4-.6 1.6-1.2.2-.6.2-1.1.1-1.2 0-.1-.2-.2-.4-.3z"/>
+            <path fill="currentColor" d="M16 3C9.4 3 4 8.4 4 15c0 2.1.5 4.2 1.6 6L4 29l8.2-1.6c1.8 1 3.8 1.6 5.8 1.6 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 22.1c-1.8 0-3.5-.5-5-1.4l-.4-.2-4.9 1 1-4.8-.3-.4c-1-1.6-1.5-3.5-1.5-5.4 0-5.6 4.5-10.1 10.1-10.1S26.1 9.4 26.1 15 21.6 25.1 16 25.1z"/>
+          </svg>
+          Reservar via WhatsApp
+        </a>
+
+        <!-- Instagram -->
+        <a class="btn"
+           href="https://instagram.com/megumirestaurante"
+           target="_blank" rel="noopener">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8zm0 2a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm5.2-.9a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8z"/>
+          </svg>
+          Instagram: @megumirestaurante
+        </a>
+      </div>
+
+      <footer class="foot">
+        <a class="ig" href="https://instagram.com/megumirestaurante" target="_blank" rel="noopener">
+          @megumirestaurante
+        </a>
+        <div class="mini">
+          Endereço: R. Américo Vespúcio, 375 — Americana/SP
+        </div>
+      </footer>
+    </section>
+  </main>
+</body>
+</html>
